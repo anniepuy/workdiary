@@ -9,6 +9,16 @@ menu = """Please select one of the following options:
 Your selection:"""
 welcome = "Welcome to your daily work diary!"
 
+def prompt_new_entry():
+    entry_content = input("What did you do today?")
+    entry_date = input("Enter the date: ")
+    add_entry(entry_content, entry_date)
+
+def prompt_get_entries():
+    for entry in entries:
+        print(f"{entry['date']}\n{entry['content']}\n\n")
+
+
 entries = [
     {"content": "Client meeting today, discusses infastructure needs.", "date": "02-02-2022"},
     {"content": "Updated product roadmap to reflect new application.", "date": "02-12-2022"},
@@ -20,12 +30,8 @@ print(welcome)
 
 while (user_input := input(menu)) != "3":
     if user_input == "1":
-        entry_content = input("What did you do today?")
-        entry_date = input("Enter the date: ")
-        add_entry(entry_content, entry_date)
+        prompt_new_entry()
     elif user_input == "2":
-        entries = get_entries()
-        for entry in entries:
-            print(f"{entry['date']}\n{entry['content']}\n\n")
+        prompt_get_entries(get_entries())        
     else:
         print('Invalid option. Please try again.')
