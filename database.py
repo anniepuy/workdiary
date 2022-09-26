@@ -8,7 +8,7 @@ connection = sqlite3.connect("workdata.db")
 
 def create_table():
     with connection:
-        connection.execute("CREATE TABLE IF NOT EXIST entries (content TEXT, date TEXT);")
+        connection.execute("CREATE TABLE IF NOT EXISTS entries (content TEXT, date TEXT);")
 
 def add_entry(entry_content, entry_date):
     with connection:
