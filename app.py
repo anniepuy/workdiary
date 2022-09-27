@@ -14,7 +14,7 @@ def prompt_new_entry():
     entry_date = input("Enter the date: ")
     add_entry(entry_content, entry_date)
 
-def prompt_get_entries():
+def prompt_get_entries(entries):
     for entry in entries:
         print(f"{entry['date']}\n{entry['content']}\n\n")
 
